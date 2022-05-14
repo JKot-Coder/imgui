@@ -65,12 +65,12 @@ set(BACKENDS_DIR ${SOURCE_DIR}/backends)
 
 set(HEADERS_CXX_IMPL_FILES
     ${BACKENDS_DIR}/imgui_impl_dx12.h
-    ${BACKENDS_DIR}/imgui_impl_win32.h
+    ${BACKENDS_DIR}/imgui_impl_glfw.h
 )
 
 set(SOURCES_CXX_IMPL_FILES
     ${BACKENDS_DIR}/imgui_impl_dx12.cpp
-    ${BACKENDS_DIR}/imgui_impl_win32.cpp
+    ${BACKENDS_DIR}/imgui_impl_glfw.cpp
 )
 
 
@@ -111,9 +111,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${SOURCE_DIR}
     ${SOURCE_DIR}/examples
 )
-if(IMGUI_IMPL_DX12 AND NOT IMGUI_STATIC_LIBRARY)
-    target_link_libraries(${PROJECT_NAME} PUBLIC d3d12)
-endif()
+target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
 
 
 ##################################################################################################################
