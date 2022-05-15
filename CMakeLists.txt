@@ -65,12 +65,10 @@ set(BACKENDS_DIR ${SOURCE_DIR}/backends)
 
 set(HEADERS_CXX_IMPL_FILES
     ${BACKENDS_DIR}/imgui_impl_dx12.h
-    ${BACKENDS_DIR}/imgui_impl_glfw.h
 )
 
 set(SOURCES_CXX_IMPL_FILES
     ${BACKENDS_DIR}/imgui_impl_dx12.cpp
-    ${BACKENDS_DIR}/imgui_impl_glfw.cpp
 )
 
 
