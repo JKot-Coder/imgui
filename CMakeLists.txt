@@ -63,15 +63,6 @@ file(GLOB FONTS_FILES ${FONTS_DIR}/*.ttf)
 
 set(BACKENDS_DIR ${SOURCE_DIR}/backends)
 
-set(HEADERS_CXX_IMPL_FILES
-    ${BACKENDS_DIR}/imgui_impl_dx12.h
-)
-
-set(SOURCES_CXX_IMPL_FILES
-    ${BACKENDS_DIR}/imgui_impl_dx12.cpp
-)
-
-
 ##################################################################################################################
 # IDE Representation
 ##################################################################################################################
@@ -81,19 +72,12 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 source_group("Header Files" FILES
     ${HEADERS_CXX_FILES}
 )
-source_group("Header Files\\Impl" FILES
-    ${HEADERS_CXX_IMPL_FILES}
-)
 source_group("Source Files" FILES
     ${SOURCES_CXX_FILES}
-)
-source_group("Source Files\\Impl" FILES
-    ${SOURCES_CXX_IMPL_FILES}
 )
 source_group("Resource Files" FILES
     ${FONTS_FILES}
 )
-
 
 ##################################################################################################################
 # Target
@@ -101,8 +85,6 @@ source_group("Resource Files" FILES
 add_library(${PROJECT_NAME} 
     ${HEADERS_CXX_FILES}
     ${SOURCES_CXX_FILES}
-    ${HEADERS_CXX_IMPL_FILES}
-    ${SOURCES_CXX_IMPL_FILES}
     ${FONTS_FILES}
 )
 target_include_directories(${PROJECT_NAME} PUBLIC 
@@ -121,10 +103,6 @@ install(
     RUNTIME DESTINATION ${DISTRIBUTE_DIR}/bin
     LIBRARY DESTINATION ${DISTRIBUTE_DIR}/lib
     ARCHIVE DESTINATION ${DISTRIBUTE_DIR}/lib
-)
-install(
-    FILES ${HEADERS_CXX_FILES} ${HEADERS_CXX_IMPL_FILES}
-    DESTINATION ${DISTRIBUTE_DIR}/include
 )
 install(
     FILES ${FONTS_FILES}
